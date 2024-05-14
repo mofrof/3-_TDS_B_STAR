@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bingo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <button ondblclick="addNovaTag()">Adicionar tag</button>
+    <button onclick="rmNovaTag()">Adicionar tag</button>
+    <div id="botao1"></div>
     <h1>Meu Bingo</h1>
     <form action="" method="">
         <label for="numeroSorteado">Número Sorteado</label>
-        <input type="number" name="numeroSorteado" id="numeroSorteado" min="1" max="75">
-        <input type="button" value="add">
+        <input  type="number" name="numeroSorteado" id="numeroSorteado" min="1" max="75">
+        <input onclick="addNumeroListaSorteados()" type="button" value="add">
     </form>
     <h2>Lista de números sorteados</h2>
-    <ol>
-        <li>17</li>
-        <li>33</li>
-        <li>42</li>
-    </ol>
+    <p id=listaNumerosSorteados></p>
     <hr>
 
     <h1>Cadastro das cartelas</h1>
@@ -42,7 +42,7 @@
 
         </tr>
     </table>
-
+<script src="main.js"></script>
 </body>
 
 </html>
