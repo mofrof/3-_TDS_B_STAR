@@ -52,6 +52,51 @@ function atualizarCartelasProximasASeremBatidas() {
 //gama
 function exibirCartelasCadastradas() {
 
+    //Selecionando o elemento do Seletor
+    const seletor = document.getElementById("cartelas_id")
+    
+    //Mudar os números exibidos de acordo com o seletor 
+    const container = document.getElementById("container");
+
+    seletor.addEventListener("change", function () {
+        if (qnt_cartelas_lista.includes(parseInt(seletor.value))) {
+            //Exibindo lista de números como Tables
+            //Lista de números
+            const numeros = listaCartelas[parseInt(seletor.value) - 1][1];
+
+            //Selecionando o corpo da tabela
+            const tbody = document.querySelector('#TabelaCartela tbody');
+            tbody.innerHTML = ""
+
+            //percorrendo a lista de números e criando uma nova linha a cada 4 números
+            for (let g = 0; g < numeros.length; g += 4) {
+                //Criando uma nova linha
+                const linha = document.createElement('tr');
+
+                //criando uma nova célula para cada número
+                for (let j = 0; j < 4; j++) {
+                    const celula = document.createElement('td');
+                    celula.textContent = numeros[g + j];
+                    linha.appendChild(celula);
+                }
+
+                //Adicionando as linhas na tabela
+                tbody.appendChild(linha);
+            }
+        }
+        else if (seletor.value === "0") {
+            const tbody = document.querySelector('#TabelaCartela tbody');
+            tbody.innerHTML = ""
+        } else {
+            console.log("ERROR!")
+            container.innerHTML = ""
+        }
+
+    })
+}
+//zeta
+function analisarSeACartelaVencedora() {
+
 }
 
 //zeta
@@ -59,9 +104,16 @@ function analisarSeACartelaVencedora() {
 
 }
 
+
+//Separando a lista das tabelas
+qnt_cartelas = 0
+qnt_cartelas_lista = []
+
+//Selecionando o elemento do Seletor
+const seletor = document.getElementById("cartelas_id")
+
 //Beta
 function cadastrarCartela() {
-
 }
 
 
