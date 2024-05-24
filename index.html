@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    <!-- <button ondblclick="addNovaTag()">Adicionar tag</button>
-    <button onclick="rmNovaTag()">Adicionar tag</button> -->
+    <button ondblclick="addNovaTag()">Adicionar tag</button>
+    <button onclick="rmNovaTag()">Adicionar tag</button>
     <div id="botao1"></div>
     <h1>Meu Bingo</h1>
     <form action="" method="">
         <label for="numeroSorteado">Número Sorteado</label>
-        <input  type="number" name="numeroSorteado" id="numeroSorteado" min="1" max="75">
+        <input type="number" name="numeroSorteado" id="numeroSorteado" min="1" max="75">
         <input onclick="addNumeroListaSorteados()" type="button" value="add">
     </form>
     <h2>Lista de números sorteados</h2>
@@ -29,8 +29,8 @@
         <br>
         <br>
         <label for="numerosDaCartela">Números da cartela:</label>
-        <input type="text" name="numerosDaCartela" id="numerosDaCartela" value="Ex.: 75,42,33,89">
-        <input type="button" value="add">
+        <input input="" type="text" name="numerosDaCartela" id="numerosDaCartela" placeholder="Ex.: 75,42,33,89">
+        <input type="button" value="add" ondblclick="cadastrarCartela()">
     </form>
     <hr>
     <h3>Selecione a cartela para visualização: </h3>
