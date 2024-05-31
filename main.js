@@ -30,6 +30,7 @@ function addNumeroListaSorteados() {
         alert("Numero Já foi sorteado")
         domInputSorteado.setAttribute("class", "erro2")
     } else {
+        marcarNumeroSorteadoNasCartelas(domInputSorteado.value)
         listaDeNumerosSorteados.push(domInputSorteado.value)
         //exibir dados
         let domParagrafoLista = document.getElementById("listaNumerosSorteados")
@@ -40,8 +41,20 @@ function addNumeroListaSorteados() {
 
 
 //alfa
-function marcarNumeroSorteadoNasCartelas() {
+function marcarNumeroSorteadoNasCartelas(numeroSorteado) {
+    let contadorCartelas = 0
 
+    while(contadorCartelas < listaCartelas.length){
+        if (listaCartelas[contadorCartelas][1].includes(parseInt(numeroSorteado))){
+            console.log("Número marcado na cartela " + listaCartelas[contadorCartelas][0] + "!")
+            listaCartelas[contadorCartelas][2] = listaCartelas[contadorCartelas][2] + 1
+        } 
+        else {
+            console.log("Número não existe na cartela de ID: " + listaCartelas[contadorCartelas][0])
+        }
+        contadorCartelas = contadorCartelas + 1
+    }
+    console.log(listaCartelas)
 }
 
 //delta
