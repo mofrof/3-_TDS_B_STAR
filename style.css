@@ -1,3 +1,38 @@
+
+ 
+@font-face{
+    font-family: jacquard;
+    src: local(jacquard), url(Jacquard12-Regular.ttf)
+}
+*{
+    font-family: cursive;
+}
+/*
+.coluna1{
+    flex-direction: column;
+   display: flex;
+   flex: 1;
+   width: auto;
+}
+.coluna2{
+    flex-direction: column;
+    display: flex;
+    flex: 2;
+    width: auto;
+}
+.coluna3{
+    flex-direction: column;
+    display: flex;
+    flex: 3;
+    width: auto;
+ }
+ */
+ .column{
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+  
+ }
 .erro {
     border: 2px solid red;
 }
@@ -5,3 +40,90 @@
 .erro2{
     color: hotpink;
 }
+
+label{
+	color: #555;
+	display: block;
+	margin-bottom: .2em;
+}
+
+
+body{
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+    display: flex;
+  
+}
+
+.button1{
+background-color: rgb(240, 188, 245);
+width: 50px;
+}
+
+.button2{
+background-color: rgb(240, 188, 245);
+width: 50px;
+}
+.button2:hover{
+   
+        background-color:  rgb(240, 148, 249);
+        
+}
+.addtag{
+    background-color:  rgb(240, 188, 245);;
+}
+.input1{
+   border-color:  rgb(240, 188, 245);
+   width: 100px; 
+   
+}
+.button1:hover{
+background-color:  rgb(240, 148, 249);
+}
+.input2{
+    border-color:  rgb(240, 188, 245); 
+    width: 100px; 
+ }
+ .input3{
+    border-color:  rgb(240, 188, 245); ; 
+    width: 100px; 
+ }
+ .numerosorteado{
+    font-size: 20px;
+    
+ }
+ .meubingo{
+    font-size: 50px;
+    
+    margin: 0%;
+    text-align: center;
+    
+ }
+ .codigocartela{
+    font-size: 20px;
+ }
+ 
+ .lista{
+    font-size: 30px;
+    margin: 0%;
+ }
+ .cartelasvirtuais{
+    font-size: 40px;
+    margin: 0%;
+ }
+ #column1{
+    text-align: center;
+    padding: 0%;
+ }
+ #column2{
+    text-align: center;
+ }
+ #column3{
+    text-align: center;
+ }
+ 
+.numerosdacartela{
+    font-size: 20px;
+}
+
+

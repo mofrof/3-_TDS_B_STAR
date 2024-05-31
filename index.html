@@ -6,53 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bingo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylegiovana">
 </head>
 
 <body>
-    <button ondblclick="addNovaTag()">Adicionar tag</button>
-    <button onclick="rmNovaTag()">Adicionar tag</button>
-    <div id="botao1"></div>
-    <h1>Meu Bingo</h1>
+   
+    <div class="column" id="column1">
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <div class="divmeubingo"><h1 class="meubingo">Meu Bingo</h1> </div>
+    
+    <br>
     <form action="" method="">
-        <label for="numeroSorteado">Número Sorteado</label>
-        <input type="number" name="numeroSorteado" id="numeroSorteado" min="1" max="75">
-        <input onclick="addNumeroListaSorteados()" type="button" value="add">
+        <label for="numeroSorteado" class="numerosorteado">Número Sorteado:</label>
+        <br>
+        <input  type="number" name="numeroSorteado" id="numeroSorteado" min="1" max="75" class="input1" >
+        <input onclick="addNumeroListaSorteados()" type="button" value="add" class="button1">
     </form>
-    <h2>Lista de números sorteados</h2>
-    <p id=listaNumerosSorteados></p>
+    <br>
     <hr>
+    
 
     <h1>Cadastro das cartelas</h1>
     <form action="" method="">
-        <label for="codCartela">Código da cartela:</label>
-        <input type="text" name="codCartela" id="codCartela">
+        <label for="codCartela" class="codigocartela">Código da cartela:</label>
+        <input type="text" name="codCartela" id="codCartela" class="input2">
         <br>
         <br>
-        <label for="numerosDaCartela">Números da cartela:</label>
-        <input input="" type="text" name="numerosDaCartela" id="numerosDaCartela" placeholder="Ex.: 75,42,33,89">
-        <input type="button" value="add" ondblclick="cadastrarCartela()">
+        <label for="numerosDaCartela" class="numerosdacartela">Números da cartela:</label>
+        <input type="text" name="numerosDaCartela" id="numerosDaCartela" placeholder="10,11,12" class="input3" >
+        <input type="button" value="add" class="button2">
     </form>
-    <hr>
-    <h3>Selecione a cartela para visualização: </h3>
-    <select name="Cartelas" id="cartelas_id">
-        <option value="0">Nenhuma Cartela</option>
-    </select>
-    <h1>Cartelas Virtuais</h1>
-    <div id="container"></div>
-    <table id="TabelaCartela">
-        <thead>
-            <tr>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--As células serão preenchidas com os números selecionados no seletor acima.-->
-        </tbody>
+    </div>
+
+    <div class="column" id="column2">
+    <h1 class="cartelasvirtuais">Cartelas Virtuais:</h1>
+    <table>
+        <th>
+
+        </th>
+        <tr>
+
+        </tr>
     </table>
+    </div>
+    <div class="column" id="column3">
+        <h2 class="lista">Lista de números sorteados:</h2>
+        <p id=listaNumerosSorteados></p>
+        </div>
 <script src="main.js"></script>
 </body>
+<script>// Função para alternar o modo escuro
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle('dark-mode'); // Adicione ou remova a classe 'dark-mode'
+    }</script>
 
 </html>
