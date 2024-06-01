@@ -36,6 +36,7 @@ function addNumeroListaSorteados() {
         let domParagrafoLista = document.getElementById("listaNumerosSorteados")
         domParagrafoLista.innerHTML = listaDeNumerosSorteados
         domInputSorteado.className = null
+        atualizarCartelasProximasASeremBatidas(listaDeNumerosSorteados)
     }
 }
 
@@ -59,6 +60,16 @@ function marcarNumeroSorteadoNasCartelas(numeroSorteado) {
 
 //delta
 function atualizarCartelasProximasASeremBatidas() {
+    listaCartelasProximasASeremBatidas = listaCartelas.filter(cartela => cartela[2] >= 19 && cartela[2] < 24);
+    lista = []
+    conta = 0
+    while (conta < listaCartelas.length){
+        lista.push(listaCartelasProximasASeremBatidas[conta][0])
+        console.log(lista)
+        conta = conta + 1
+        txt = document.getElementById("cartelasProximas")
+        txt.innerHTML = lista
+    }
 
 }
 
