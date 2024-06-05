@@ -19,11 +19,10 @@ let listaCartelas = [
 ]
 let listaCartelasProximasASeremBatidas = []
 let listaDeNumerosSorteados = []
-
 function addNumeroListaSorteados() {
     let domInputSorteado = document.getElementById("numeroSorteado")
     //se numero < 1 ou > 75 se o numero já existe
-    if (domInputSorteado.value <= 1 || domInputSorteado.value >= 75) {
+    if (domInputSorteado.value < 1 || domInputSorteado.value > 75) {
         alert("Numero Já foi sorteado")
         domInputSorteado.style.color = "red"
     } else if (listaDeNumerosSorteados.includes(domInputSorteado.value)) {
@@ -32,6 +31,7 @@ function addNumeroListaSorteados() {
     } else {
         marcarNumeroSorteadoNasCartelas(domInputSorteado.value)
         listaDeNumerosSorteados.push(domInputSorteado.value)
+        analisarSeACartelaVencedora()
         //exibir dados
         let domParagrafoLista = document.getElementById("listaNumerosSorteados")
         domParagrafoLista.innerHTML = listaDeNumerosSorteados
@@ -70,26 +70,26 @@ function atualizarCartelasProximasASeremBatidas() {
         txt = document.getElementById("cartelasProximas")
         txt.innerHTML = lista
     }
-
+    
 }
 
 //gama
 function exibirCartelasCadastradas() {
-
-
+    
+    
     //Selecionando o elemento do Seletor
     const seletor = document.getElementById("cartelas_id")
-
+    
     //Criando opções a partir da quantidade de cartelas cadastradas
-    //    for (let contagem = 0; contagem < listaCartelas.length; contagem++) {
-    //        let option = document.createElement("option")
-    //        option.value = contagem + 1
-    //        option.textContent = contagem + 1
-    //        seletor.appendChild(option)
-    //    }
-
-
-    //Mudar os números exibidos de acordo com o seletor 
+    //      for (let contagem = 0; contagem < listaCartelas.length; contagem++) {
+        //        let option = document.createElement("option")
+        //        option.value = contagem + 1
+        //        option.textContent = contagem + 1
+        //        seletor.appendChild(option)
+        //    }
+        
+        
+        //Mudar os números exibidos de acordo com o seletor 
     const container = document.getElementById("container");
 
     seletor.addEventListener("change", function () {
@@ -97,16 +97,16 @@ function exibirCartelasCadastradas() {
             //Exibindo lista de números como Tables
             //Lista de números
             const numeros = listaCartelas[parseInt(seletor.value) - 1][1];
-
+            
             //Selecionando o corpo da tabela
             const tbody = document.querySelector('#TabelaCartela tbody');
             tbody.innerHTML = ""
-
+            
             //percorrendo a lista de números e criando uma nova linha a cada 4 números
             for (let g = 0; g < numeros.length; g += 4) {
                 //Criando uma nova linha
                 const linha = document.createElement('tr');
-
+                
                 //criando uma nova célula para cada número
                 for (let j = 0; j < 4; j++) {
                     const celula = document.createElement('td');
@@ -130,7 +130,18 @@ function exibirCartelasCadastradas() {
 }
 //zeta
 function analisarSeACartelaVencedora() {
-
+    let conta = 0;
+    while (conta < listaCartelas.length){
+        console.log(conta)
+        console.log(listaCartelas.length)
+        
+        if (listaCartelas[conta][2] == 24){
+            alert(listaCartelas[conta][0])
+        }
+        conta = conta + 1
+        console.log(conta)
+        console.log(listaCartelas.length)
+    }
 }
 
 
@@ -147,11 +158,11 @@ function cadastrarCartela() {
     //Obtendo valores dos inputs
     let inputCartelaID = document.getElementById("codCartela")
     let inputNumerosCartela = document.getElementById("numerosDaCartela")
-
+    
     //Fazendo split e retirando espaços em branco, caso ocorra erros de digitação - ID e Números da Cartela
     let NumerosCartela_SNULL = inputNumerosCartela.value.replace(/\s/g, "");;
     let NumerosID_SNULL = inputCartelaID.value.replace(/\s/g, "");;
-
+    
     //alerta caso ocorra a digitação de alguma letra no ID e Cartela
     //ID
     inputCartelaID.addEventListener("input", function () {
@@ -169,18 +180,18 @@ function cadastrarCartela() {
     });
 
     console.log("O número de identificação da sua cartela é: " + NumerosID_SNULL, "Os números cadastrados foram: " + NumerosCartela_SNULL)
-
+    
     //Separando números por vírgulas
     NumerosCartelaFINAL = NumerosCartela_SNULL.split(",")
-
+    
     LISTA_NUMEROS_INT = []
-
+    
     for (c = 0; c < NumerosCartelaFINAL.length; c++) {
         LISTA_NUMEROS_INT.push(parseInt(NumerosCartelaFINAL[c]))
     }
     //Enviando ID e Números splitados para a lista de cartelas | 0 = Numeros sorteados
     listaCartelas.push([parseInt(NumerosID_SNULL), LISTA_NUMEROS_INT, 0])
-
+    
     //Atualizando e inserindo novas opções ao seletor de cartelas
     while (qnt_cartelas_lista.length < listaCartelas.length) {
         qnt_cartelas = qnt_cartelas + 1
@@ -193,24 +204,25 @@ function cadastrarCartela() {
         seletor.appendChild(option)
     }
     //console.log(listaCartelas)
-
+    
 }
-cadastrarCartela()
-exibirCartelasCadastradas()
+// cadastrarCartela()
+// exibirCartelasCadastradas()
 
 
 /////////////////////////////////////////////
 //Exemplo para apresentação do cónteudo.
 
 // function addNovaTag(){
-//     let novaTag = document.createElement("h1")
-//     novaTag.innerHTML = "Eu sou uma nova TAG"
-
-//     document.body.append(novaTag)
-// }
-
-// function rmTag(){
-//     let tagASerRemovida = document.body.getElementsByTagName("h1")[3]
-//     document.body.removeChild(tagASerRemovida)
-//     document.remove
-// }
+    //     let novaTag = document.createElement("h1")
+    //     novaTag.innerHTML = "Eu sou uma nova TAG"
+    
+    //     document.body.append(novaTag)
+    // }
+    
+    // function rmTag(){
+        //     let tagASerRemovida = document.body.getElementsByTagName("h1")[3]
+        //     document.body.removeChild(tagASerRemovida)
+        //     document.remove
+        // }
+        
